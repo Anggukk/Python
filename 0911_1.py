@@ -189,9 +189,55 @@ for i in range(1, 10):
 '''
 
 
+'''
 # 구구단 만들기
 
 for i in range(1, 10):
     for j in range(1, 10):
         print(f"{i} * {j} = {i*j}")
     print("=================")
+'''
+
+
+# 리스트 순회
+fruits = ["사과", "바나나", "오렌지", "포도"]
+
+for fruit in fruits:
+    print(fruit)
+
+
+scores = [65, 27, 87, 86]
+total = 0
+count = 0
+
+for score in scores:
+    count += 1
+    total += score
+    print(f"점수 : {score}")
+
+print(f"총점 : {total}")
+print(f"평균 : {total/count}")
+
+
+'''
+word = "Python"
+print("===========")
+
+for char in word:
+    print(char, end="")
+'''
+
+
+# 별 패턴 1 : 직각삼각형
+
+for i in range(1, 6):
+    for j in range(i):
+        print("*", end="")
+    print("")
+
+
+# 별 패턴 2 : 정사각형
+print("===============")
+
+for i in range(1, 6):
+    print("*****")
