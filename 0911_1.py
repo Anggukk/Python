@@ -136,6 +136,7 @@ else:
 '''
 
 
+'''
 # 중첩조건문
 # 실습5
 
@@ -157,3 +158,40 @@ else:
         print("구매 성공")
     else:
         print("금액이 부족합니다.")
+'''
+
+
+# for문
+'''
+for i in range(5):
+    print(i)
+'''
+
+
+'''
+for i in range(1, 5): # i=1~4
+    print(i)
+'''
+
+
+'''
+for i in range(2, 8, 2): # 2~7까지 2개 간격으로
+    print(i)
+'''
+
+
+'''
+# 구구단 만들기
+# 4단
+
+for i in range(1, 10):
+    print(f"4 * {i} = {4*i}")
+'''
+
+
+# 구구단 만들기
+
+for i in range(1, 10):
+    for j in range(1, 10):
+        print(f"{i} * {j} = {i*j}")
+    print("=================")
