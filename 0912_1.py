@@ -75,3 +75,100 @@ data1 = data[:3]
 data2 = data[3:6]
 data3 = data[6:]
 print(data1[::-1], data2[::-1], data3[::-1])
+
+
+# 인덱스 요소 삭제
+list = [10, 20, 30, 40, 50]
+
+del list[3]
+print(list)
+
+del list[1:3]
+print(list)
+
+
+# 실습2
+# 문제1
+fruits = ["apple", "banana", "cherry", "grape", "watermelon", "strawberry"]
+
+del fruits[1:4]
+print(fruits)
+
+
+# 문제2
+letters = ["A", "B"]
+letters *= 3
+del letters[2]
+print(letters)
+
+
+# 요소 추가 메서드
+numbers = [10, 21, 15, 22, 54]
+
+numbers.append(20)
+print(numbers)
+
+numbers.extend([5, 29])
+print(numbers)
+
+numbers.insert(2, 30)
+print(numbers)
+
+
+fruits = ["사과", "바나나", "오렌지", "바나나", "포도"]
+fruits.remove("바나나")
+print(fruits)
+
+removed = fruits.pop()  # pop에 숫자 안쓰면 맨 뒤에꺼가 사라짐
+print(removed)
+print(fruits)
+
+fruits.clear()  # 리스트는 삭제안되고 요소만 삭제됨
+print(fruits)
+
+
+# 요소 검색
+numbers = [1, 2, 6, 9, 5, 3, 2, 4, 7]
+
+idx = numbers.index(6)  # 6이 있는 자리 찾기
+print(idx)
+
+count = numbers.count(2)
+print("count : ", count)
+
+numbers.sort()
+print(numbers)
+
+
+# 리스트 정렬
+numbers = [3, 1, 2]
+numbers.sort()
+print(numbers)
+
+numbers.sort(reverse=True)
+print(numbers)
+
+numbers.reverse()
+print(numbers)
+
+
+# 실습3
+# 문제1
+train = ["철수", "영희"]
+train.extend(["민수", "지훈"])
+train.remove("영희")
+train.insert(1, "수진")
+train.remove("민수")
+train.reverse()
+print(train)
+
+
+# 문제2
+list = [5, 3, 7]
+list.extend([4, 9])
+print(max(list))
+print(min(list))
+print(sum(list))
+list.sort()
+list.pop()
+print(list)
