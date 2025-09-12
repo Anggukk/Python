@@ -41,7 +41,7 @@ print(numbers)
 # 실습1
 # 문제1,2,3
 nums = [10, 20, 30, 40, 50]
-print(nums[::4])
+print(nums[::])
 
 nums = [100, 200, 300, 400, 500, 600, 700]
 nums2 = nums[2:5]
