@@ -160,3 +160,50 @@ print(len(numbers))
 print(max(numbers))
 print(min(numbers))
 print(sum(numbers))
+
+
+# 실습1
+# Step1
+user = ("minji", 25, "Seoul")
+
+'''
+user_list = list(user)
+print(user_list)
+
+user_list[0] = "eunji"
+
+restored_user = user_list
+print(restored_user)
+'''
+
+
+restored_user = ("eunji", user[1], user[2])
+print(restored_user)
+
+# Step2
+
+name, age, city = restored_user
+
+
+# Step3
+
+if city == "Seoul":
+    print("※서울 지역 보안 정책 적용 대상입니다.")
+else:
+    print("※일반 지역 보안 정책 적용 대상입니다.")
+
+
+# Step4
+
+users = ("minji", "eunji", "soojin", "minji", "minji")
+
+print(users.count("minji"))
+print(users.index("soojin"))
+
+
+# Step5
+
+sorted_users = list(users)
+sorted_users.sort()
+
+print(sorted_users)
