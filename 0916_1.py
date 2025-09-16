@@ -6,6 +6,7 @@
 
 # 딕셔너리를 사용하지 않는 경우 - 두 개의 리스트로 관리
 
+import copy
 student_ids = ["20230001", "20230002", "20230003"]
 student_names = ["김철수", "이영희", "박민수"]
 
@@ -203,7 +204,7 @@ email_value = user["email"]
 user["level"] = 6
 print(user)
 
-print(student.get("phone", "미입력"))
+print(user.get("phone", "미입력"))
 
 user.update({"nickname": "sky"})
 user.pop("email")
@@ -225,3 +226,56 @@ student.update({"Alice": 88})
 student.pop("Bob")
 
 print(student)
+
+
+# 중요 메서드들
+
+scores = {
+    "김철수": 85,
+    "이영희": 95,
+    "박민수": 78
+}
+
+
+# setdefault() - 키가 없으면 추가, 있으면 기존 값
+scores.setdefault("정수진", 88)
+scores.setdefault("김철수", 100)
+print(scores)
+
+
+# copy() - 얕은 복사
+scores_copy = scores.copy()
+scores_copy["최동훈"] = 95
+scores_copy["김철수"] = 10
+print(scores)
+print(scores_copy)
+
+
+# deepcopy() - 깊은 복사
+nested_dict = {
+    "team1": {"leader": "김철수", "members": ["이영희", "박민수"]},
+    "team2": {"leader": "정수진", "members": ["최동훈", "강미나"]}
+}
+
+shallow = nested_dict.copy()
+deep = copy.deepcopy(nested_dict)
+
+nested_dict["team1"]["members"].append("신입")
+print("shallw", shallow["team1"]["members"])
+print("deep", deep["team1"]["members"])
+
+
+# 순회
+scores = {
+    "김철수": 85,
+    "이영희": 95,
+    "박민수": 78
+}
+
+for name in scores:
+    print(name, scores[name])
+
+
+# 평균 값 계산
+average = sum(scores.values())/len(scores)
+print(average)
