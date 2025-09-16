@@ -279,3 +279,90 @@ for name in scores:
 # 평균 값 계산
 average = sum(scores.values())/len(scores)
 print(average)
+
+
+# 실습1
+# 문제1
+numbers = [3, 6, 1, 8, 4]
+
+'''
+numbers2 = []
+
+for i in range(0, 5):
+    numbers2.append(numbers[i]*2)
+'''
+
+numbers2 = [x*2 for x in numbers]
+
+print(numbers2)
+
+
+# 문제2
+words = ["apple", "banana", "kiwi", "grape"]
+
+'''
+length_word = []
+
+for i in range(0, 4):
+    length_word.append(len(word[i]))
+'''
+
+length_word = [len(word) for word in words]
+
+print(length_word)
+
+
+# 문제3
+coordinates = [(1, 2), (3, 4), (5, 6), (7, 8)]
+
+'''
+x_values = []
+y_values = []
+
+for i in range(0, 4):
+    x, y = coordinates[i]
+    x_values.append(x)
+    y_values.append(y)
+'''
+
+x_values = [x for x, y in coordinates]
+y_values = [y for x, y in coordinates]
+
+print(x_values)
+print(y_values)
+
+
+# 실습2
+# 문제1
+num = int(input("정수를 입력하세요 : "))
+sum = 0
+
+for i in range(1, num+1):
+    sum += i
+
+print(sum)
+
+
+# 문제2
+num = int(input("정수를 입력하세요 : "))
+
+for i in range(1, 10):
+    print(f"{num} * {i} = {num*i}")
+
+
+# 문제3
+sum = 0
+
+for i in range(1, 101):
+    if i % 3 == 0:
+        sum += i
+
+print(sum)
+
+
+# 문제4
+num = int(input("숫자를 입력하세요 : "))
+
+for i in range(1, num+1):
+    if i % 2 == 0 and i % 5 == 0:
+        print(i)
