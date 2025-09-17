@@ -71,6 +71,7 @@ while num <= 100:
 print(f"1부터 100까지의 합 {total}")
 
 
+'''
 # while 문으로 입력 검증하기
 # 올바른 입력을 받을 때까지 반복
 age = -1
@@ -82,3 +83,103 @@ while age < 0 or age > 150:
         print("올바른 나이를 입력해주세요!")
 
 print(f"입력된 나이 : {age}세")
+'''
+
+
+'''
+# 비밀번호 확인
+correct_password = "python123"
+attempt = 0
+max_attempts = 3
+
+while attempt < max_attempts:
+    password = input("비밀번호를 입력하세요")
+    attempt += 1
+
+    if password == correct_password:
+        print("로그인 성공")
+        break
+    else:
+        remaining = max_attempts-attempt
+        if remaining > 0:
+            print(f"틀렸습니다. {remaining}번 남았습니다.")
+        else:
+            print(f"로그인 실패! 계정이 잠겼습니다.")
+'''
+
+
+'''
+# 무한 루프와 break
+while True:
+    user_input = input("명령을 입력하세요(종료:q)")
+
+    if user_input == "q":
+        print("프로그램을 종료합니다.")
+        break
+
+    print(f"입력한 명령 : {user_input}")
+
+    pass
+'''
+
+
+'''
+# 계산기
+while True:
+    num1 = float(input("첫 번째 숫자 : "))
+
+    if num1 == 0:
+        break
+
+    num2 = float(input("두 번째 숫자 : "))
+    operator = input("연산자 (+, -, *, /)")
+
+    if operator == "+":
+        result = num1+num2
+    elif operator == "-":
+        result = num1-num2
+    elif operator == "*":
+        result = num1*num2
+    elif operator == "/":
+        if num2 != 0:
+            result = num1/num2
+        else:
+            print("0으로 나눌 수 없습니다.")
+            continue
+    else:
+        print("잘못된 연산자 입니다.")
+        continue
+
+    print(f"결과 : {result}")
+    break
+'''
+
+
+'''
+# 실습2
+# 문제1
+secret_code = "codingonre3"
+
+while True:
+    code = input("비밀 코드를 입력하세요.")
+
+    if code != secret_code:
+        print("비밀 코드가 틀렸습니다. 다시 시도하세요.")
+    else:
+        print("입장 완료! 환영합니다.")
+        break
+'''
+
+
+# 문제2
+count = 0
+sum_age = 0
+
+while count < 5:
+    age = int(input("나이를 입력하세요 : "))
+
+    if 0 < age <= 120:
+        sum_age += age
+        count += 1
+
+print(f"총 나이 합계는 {sum_age}, 평균은 {sum_age/5}입니다.")
