@@ -275,3 +275,14 @@ def sum_all(*numbers):
 
 
 print(sum_all(1, 2, 3))
+
+
+# 가변 키워드 인자(**Kwargs)
+def print_info(**user):
+    print(type(user))
+    print(user)
+    for key, value in user.items():
+        print(f"{key} : {value}")
+
+
+print_info(name="김철수", age=20, city="서울")
