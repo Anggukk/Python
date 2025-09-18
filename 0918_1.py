@@ -286,3 +286,17 @@ def print_info(**user):
 
 
 print_info(name="김철수", age=20, city="서울")
+
+
+def create_student(**info):
+    student = {
+        "name": info.get("name", "이름 없음"),
+        "age": info.get("age", "20"),
+        "grade": info.get("grade", 1),
+        "subjects": info.get("subjects", []),
+    }
+    return student
+
+
+student1 = create_student(name="김철수", subjects="python")
+print(student1)
