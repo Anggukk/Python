@@ -394,3 +394,54 @@ print(c2.area)   # 속성 접근 : 괄호 없이 사용 가능
 c2.radius = 10
 print(c2.area)
 '''
+
+
+# 실습3
+# 문제1
+class UserAccount:
+    def __init__(self, username, password):
+        self.username = username
+        self.__password = password
+
+    def change_password(self, old_pw, new_pw):
+        if self.__password == old_pw:
+            print("비밀번호 변경")
+            self.__password = new_pw
+
+        else:
+            print("비밀번호 불일치")
+
+    def check_password(self, password):
+        if self.__password == password:
+            print("비밀번호 일치")
+        else:
+            print("비밀번호 불일치")
+
+
+user = UserAccount("정은경", "wjddmsrud")
+
+user.check_password("wjddmsrud")
+
+user.change_password("wjddmsrud", "dmsruddl")
+
+
+# 문제2
+class Student:
+    def __init__(self, score=0):
+        self.__score = score
+
+    @property
+    def score(self):
+        return self.__score
+
+    @score.setter
+    def score(self, value):
+        if 0 <= value <= 100:
+            self.__score = value
+        else:
+            raise ValueError("점수는 0 이상 100이하만 허용됩니다.")
+
+
+s1 = Student(80)
+s1.score = 90
+print(s1.score)
