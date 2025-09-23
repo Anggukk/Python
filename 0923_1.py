@@ -22,6 +22,7 @@ class 자식클래스(부모클래스):
 # 추가된 자신만의 속성과 메서드 정의 가능
 
 
+from abc import ABC, abstractmethod
 class Person:
     def __init__(self, name, age):
         self.name = name
@@ -180,3 +181,132 @@ shapes = [Ractangle(4, 10, 5), Triangle(3, 10, 2)]
 for shape in shapes:
     shape.printinfo()
     shape.area()
+
+
+# 추상 클래스
+'''
+직접 객체를 만들 수 없고, 반드시 상속 받아서 완성해야 사용할 수 있는 미완성 설계도
+
+동물 - 실제로 "동물"만 있는 건 없고, 개, 고양이, 새, 등 구체적인 동물이 있음
+악기 - 추상적 개념, 피아노, 기타, 드럼이 구체적 개념
+'''
+
+
+# 추상 클래스 없이
+class Animal:
+    def make_sound(self):
+        pass
+
+
+class Dog(Animal):
+    def eat(self):
+        print("강아지가 밥을 먹습니다.")
+
+
+dog = Dog()
+dog.make_sound()
+
+
+'''
+# 추상클래스 사용
+class Animal(ABC):  # 추상 클래스
+    @abstractmethod
+    def make_sound(self):
+        pass
+
+
+class Dog(Animal):
+    def eat(self):
+        print("강아지가 밥을 먹습니다.")
+'''
+
+
+# 기본 사용법
+# for abc import ABC, abstractmethod
+
+class 추상클래스이름(ABC):   # ABC 상속 필수 !
+    @abstractmethod
+    def 추상메서드(self):
+        pass
+
+
+# 추상 메서드는 자식 클래스에서 반드시 구현
+
+
+class Animal(ABC):   # 추상 클래스
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    # 일반 메서드 - 모든 동물이 공통으로 사용
+
+    def sleep(self):
+        print(f"{self.name}이(가) 잠을 잡니다.")
+
+    def eat(self):
+        print(f"{self.name}이(가) 밥을 먹습니다.")
+
+    # 추상 메서드 - 각 동물마다 다르게 구현해야 함
+
+    @abstractmethod
+    def make_sound(self):
+        pass
+
+    @abstractmethod
+    def move(self):
+        pass
+
+
+class Dog(Animal):
+    def make_sound(self):
+        print(f"{self.name}: 멍멍!")
+
+    def move(self):
+        print(f"{self.name}이(가) 뛰어다닙니다.")
+
+
+class Bird(Animal):
+    def make_sound(self):
+        print(f"{self.name}: 짹짹")
+
+    def move(self):
+        print(f"{self.name}이(가) 날아갑니다.")
+
+
+dog = Dog("바둑이", 3)
+bird = Bird("참새", 1)
+
+
+# 부모 클래스의 일반 메서드
+dog.eat()
+bird.sleep()
+
+
+# 부모 클래스의 추상 메서드
+dog.move()
+bird.make_sound()
+
+
+# from abc import ABC, abstractmethod
+# 실습5
+class Payment(ABC):
+    @abstractmethod
+    def pay(self, amount):
+        pass
+
+
+class CardPayment(Payment):
+    def pay(self, amount):
+        print(f"카드로 {amount}원을 결제합니다.")
+
+
+class CashPayment(Payment):
+    def pay(self, amount):
+        print(f"현금으로 {amount}원을 결제합니다.")
+
+
+card = CardPayment()
+cash = CashPayment()
+
+card.pay(5000)
+cash.pay(10000)
