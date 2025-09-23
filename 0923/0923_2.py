@@ -33,3 +33,24 @@ print(calculator.multiply(4, 5))
 print(calculator.divide(5, 4))
 
 print(calculator.divide(5, 0))
+
+
+# 가상환경
+# 프로젝트별로 독립적인 패키지 환경을 만들 수 있다.
+
+
+# pip
+# 파이썬 패키지 관리자
+
+
+# 가상 환경 생성
+# python -m venv 이름(myenv)
+
+
+# 가상 환경 활성화
+# myenv/Scripts/activate
+# source myenv/Scripts/activate
+
+
+# 가상 환경 비활성화
+# deactivate
