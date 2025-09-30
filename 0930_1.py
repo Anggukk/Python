@@ -240,6 +240,7 @@ arr = np.array([
     [95, 97],
     [80, 85]
 ])
+print("문제4 : \n", 100-arr)
 
 
 # 5
@@ -249,5 +250,141 @@ arr = np.array([
 ])
 arr_1 = arr[0]*10
 arr_2 = arr[1]*100
-arr5 = arr_1+arr_2
-print("문제5 : \n", arr5)
+print("문제5 : \n", arr_1, arr_2)
+
+
+# 6
+arr = np.array([
+    [10, 20],
+    [30, 40],
+    [50, 60]
+])
+arr[0] += 100
+arr[1] += 200
+arr[2] += 300
+print("문제6 : \n", arr)
+
+
+# 실습3. NumPy 종합 연습(1)
+# 1
+arr = np.arange(0, 25).reshape(5, 5)
+print(f"""문제1 :
+가운데 행 : {arr[2]}
+가운데 열 : {arr[:, 2]}""")
+
+
+# 2
+arr = np.random.randint(0, 100, (10, 10))
+print("문제2:\n", arr[::2])
+
+
+# 3
+arr = np.arange(0, 50).reshape(5, 10)
+print("문제3:\n", arr[1:4, 2:7])
+
+
+# 4
+arr = np.random.randint(0, 10, (4, 4))
+print("문제4 : \n")
+arr1 = []
+arr2 = []
+for i in range(4):
+    arr1.append(arr[i][i])
+    arr2.append(arr[i][3-i])
+
+print(f"""주대각선 : {arr1}
+부대각선 : {arr2}""")
+
+
+# 5
+arr = np.random.randint(0, 10, (3, 4, 5))
+print("문제5:\n두 번째 층 첫 번째 행 마지막 열의 값 : ", arr[1, 1, -1])
+
+
+# 6
+arr = np.arange(35, 75).reshape(10, 4)
+print("문제6 : \n", arr)
+
+
+# 7
+print("문제7:\n", arr[::-1])
+
+
+# 8
+print("문제8:\n", arr[1:-1, 2:])
+
+
+# 9
+arr = np.random.randint(1, 50, (5, 6))
+print("문제9:", arr[arr % 2 == 0])
+
+
+# 10
+arr = np.arange(0, 100).reshape(10, 10)
+print("문제10:\n", arr[1:6:2, 2:7:2])
+
+
+# 11
+arr = np.random.randint(0, 10, 15)
+print(f"""문제11:
+짝수 인덱스 값들 : {arr[arr % 2 == 0]}
+짝수 인덱스 중 5 이상인 값들 : {arr[(arr % 2 == 0) & (arr >= 5)]}""")
+
+
+# 실습2. 통계 함수 및 집계 연산(1)
+# 1
+arr = np.array([5, 10, 15, 20])
+print(f"""문제1 :
+합계 : {np.sum(arr)}
+평균 : {np.mean(arr)}""")
+
+
+# 2
+arr = np.array([
+    [3, 7, 1],
+    [9, 2, 8]
+])
+print(f"""문제2:
+최소값 : {np.min(arr)}
+최대값 : {np.max(arr)}""")
+
+
+# 3
+arr = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
+print(f"""문제3:
+각 열의 합계 : {np.sum(arr, 0)}
+각 행의 합계 : {np.sum(arr, 1)}""")
+
+
+# 4
+arr = np.array([
+    [10, 20],
+    [30, 40],
+    [50, 60]
+])
+print(f"""문제4:
+행별 평균 : {np.mean(arr, 1)}
+열별 평균 : {np.mean(arr, 0)}""")
+
+
+# 5
+arr = np.array([2, 4, 4, 4, 5, 5, 7, 9])
+print(f"""문제5:
+전체 표준편차 : {np.std(arr)}
+편차 배열 : {arr-np.mean(arr)}""")
+
+
+# 6
+arr = np.array([
+    [1, 2, 3],
+    [4, 5, 6]
+])
+print(f"""문제6:
+행 단위 누적 합 : 
+{np.cumsum(arr, 1)}
+열 단위 누적 곱 : 
+{np.cumprod(arr, 0)}""")
