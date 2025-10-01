@@ -214,3 +214,164 @@ sorted_ids = np.argsort(scores)[::-1]
 
 for i, idx in enumerate(sorted_ids, 1):
     print(f"{names[idx]}{scores[idx]}")
+
+
+'''
+# 실습1. 배열 형태 변형, 차원 확장/축소
+# 1
+arr = np.array([
+    [10, 20],
+    [30, 40],
+    [50, 60]
+])
+arr1_1 = arr.ravel()
+arr1_2 = arr.flatten()
+
+arr[0, 0] = 999
+
+print(arr1_1)
+print(arr1_2)
+
+
+# 2
+img = np.random.rand(32, 32)
+arr2 = np.expand_dims(img, 0)
+print("문제2:", arr2.shape)
+
+
+# 3
+img = np.random.randint(0, 255, (1, 28, 28, 1))
+arr3 = np.squeeze(img, 0)
+arr3 = np.squeeze(arr3, 2)
+print("문제3:", arr3.shape)
+
+
+# 4
+arr = np.array([
+    [3, 1, 2, 2],
+    [1, 2, 3, 1],
+    [2, 2, 1, 4]
+])
+arr4 = arr.flatten()
+arr4 = np.unique(arr4)
+arr4 = np.expand_dims(arr4, 0)
+print("문제4:", arr4)
+
+
+# 5
+arr = np.array([[[1], [3], [2], [1], [3], [2], [3], [1], [2], [3]]])
+arr5 = np.squeeze(arr)
+print("문제5:", arr5)
+print(arr5.shape)
+arr5 = np.unique(arr5)
+print(arr5)
+
+# 6
+arr = np.array([
+    [
+        [0, 1, 2, 3],
+        [1, 2, 3, 4],
+        [2, 3, 4, 5]
+    ],
+    [
+        [3, 4, 5, 6],
+        [4, 5, 6, 7],
+        [5, 6, 7, 8]
+    ]
+])
+arr6 = np.unique(arr)
+arr6 = np.expand_dims(arr6, 1)
+print("문제6:\n", arr6)
+print(arr6.shape)
+'''
+
+
+'''
+# 실습2. 배열의 결합과 분리
+# 1
+a = np.array([[1, 2], [3, 4]])
+b = np.array([[5, 6]])
+arr1 = np.concatenate([a, b], axis=0)
+print("문제1:\n", arr1)
+
+
+# 2
+a = np.arange(12)
+arr2 = np.split(a, 3)
+print("문제2:")
+for x in arr2:
+    print(x)
+
+
+# 3
+a = np.array([1, 2])
+b = np.array([3, 4])
+c = np.array([5, 6])
+arr3 = np.stack((a, b, c), axis=0)
+print("문제3:\n", arr3)
+
+
+# 4
+a = np.array([[1, 2, 3], [4, 5, 6]])
+b = np.array([[7, 8, 9], [10, 11, 12]])
+arr4 = np.stack((a, b), axis=1)
+print("문제4:\n", arr4)
+print(arr4.shape)
+
+
+# 5
+arr = np.arange(8)
+arr5 = np.split(arr, [2, 5])
+print("문제5:")
+for x in arr5:
+    print(x)
+
+
+# 6
+a = np.ones((2, 3))
+b = np.zeros((2, 3))
+arr6_1 = np.stack((a, b), axis=0)
+arr6_2 = np.stack((a, b), axis=1)
+print("문제6:")
+print(arr6_1)
+print(arr6_1.shape)
+print("=================")
+print(arr6_2)
+print(arr6_2.shape)
+'''
+
+
+# 실습3. 배열의 정렬
+# 1
+arr = np.array([7, 2, 9, 4, 5])
+arr1 = np.sort(arr)
+print(f"""문제1:
+오름차순 : {arr1}
+내림차순 : {arr1[::-1]}""")
+
+
+# 2
+arr = np.array([
+    [9, 2, 5],
+    [3, 8, 1]
+])
+arr2 = np.sort(arr, 1)
+print("문제2:\n", arr2)
+
+
+# 3
+arr = np.array([10, 3, 7, 1, 9])
+arr3 = np.argsort(arr)
+print(f"""문제3
+인덱스 배열 : {arr3}
+원본 배열 재정렬 : {arr[arr3]}""")
+
+
+# 4
+arr = np.array([
+    [4, 7, 2],
+    [9, 1, 5],
+    [6, 8, 3]
+])
+arr4 = np.sort(arr, 0)
+print("문제4:\n", arr4)
