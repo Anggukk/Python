@@ -21,7 +21,6 @@ plt.bar(sex_survival.index, sex_survival.values)
 plt.title("Survival Rate by Sex")
 plt.show()
 
-
 class_survival=df.groupby("Pclass")["Survived"].mean()
 
 plt.bar(class_survival.index.astype(str), class_survival.values)
